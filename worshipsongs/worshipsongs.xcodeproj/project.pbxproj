@@ -18,6 +18,15 @@
 		9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */; };
 		9FE12E621ACA68AD00DFFB55 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E611ACA68AD00DFFB55 /* CommonConstants.swift */; };
 		9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E641ACA694500DFFB55 /* CommonService.swift */; };
+		9FE12E671ACA6C9A00DFFB55 /* SongDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E661ACA6C9A00DFFB55 /* SongDao.swift */; };
+		9FE12E691ACA6D2900DFFB55 /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E681ACA6D2900DFFB55 /* Songs.swift */; };
+		9FE12E751ACA6DAA00DFFB55 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E6B1ACA6DAA00DFFB55 /* colorPalette.plist */; };
+		9FE12E761ACA6DAA00DFFB55 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E6E1ACA6DAA00DFFB55 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9FE12E771ACA6DAA00DFFB55 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E701ACA6DAA00DFFB55 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9FE12E781ACA6DAA00DFFB55 /* fmdb.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E711ACA6DAA00DFFB55 /* fmdb.txt */; };
+		9FE12E791ACA6DAA00DFFB55 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E731ACA6DAA00DFFB55 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9FE12E7A1ACA6DAA00DFFB55 /* fontsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E741ACA6DAA00DFFB55 /* fontsList.plist */; };
+		9FE12E7D1ACA6E1600DFFB55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +55,19 @@
 		9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesService.swift; sourceTree = "<group>"; };
 		9FE12E611ACA68AD00DFFB55 /* CommonConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
 		9FE12E641ACA694500DFFB55 /* CommonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonService.swift; sourceTree = "<group>"; };
+		9FE12E661ACA6C9A00DFFB55 /* SongDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDao.swift; sourceTree = "<group>"; };
+		9FE12E681ACA6D2900DFFB55 /* Songs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
+		9FE12E6B1ACA6DAA00DFFB55 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
+		9FE12E6D1ACA6DAA00DFFB55 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		9FE12E6E1ACA6DAA00DFFB55 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		9FE12E6F1ACA6DAA00DFFB55 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		9FE12E701ACA6DAA00DFFB55 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		9FE12E711ACA6DAA00DFFB55 /* fmdb.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fmdb.txt; sourceTree = "<group>"; };
+		9FE12E721ACA6DAA00DFFB55 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		9FE12E731ACA6DAA00DFFB55 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		9FE12E741ACA6DAA00DFFB55 /* fontsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fontsList.plist; sourceTree = "<group>"; };
+		9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		9FE12E801ACA6ECC00DFFB55 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Header.h; path = classes/header/Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FE12E7D1ACA6E1600DFFB55 /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +110,8 @@
 		9FE12E2E1ACA4C9E00DFFB55 /* worshipsongs */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E7B1ACA6DFB00DFFB55 /* framework */,
+				9FE12E6A1ACA6D8F00DFFB55 /* FMDB Library */,
 				9FE12E551ACA4F4600DFFB55 /* classes */,
 				9FE12E531ACA4F2D00DFFB55 /* asset */,
 				9FE12E371ACA4C9E00DFFB55 /* Main.storyboard */,
@@ -133,6 +158,7 @@
 		9FE12E551ACA4F4600DFFB55 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E7F1ACA6EBF00DFFB55 /* header */,
 				9FE12E601ACA688100DFFB55 /* common */,
 				9FE12E5A1ACA4F9100DFFB55 /* appdelegate */,
 				9FE12E591ACA4F7B00DFFB55 /* controllers */,
@@ -153,17 +179,21 @@
 		9FE12E571ACA4F5D00DFFB55 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E661ACA6C9A00DFFB55 /* SongDao.swift */,
 				9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */,
 				9FE12E641ACA694500DFFB55 /* CommonService.swift */,
 			);
 			name = service;
+			path = classes/service;
 			sourceTree = "<group>";
 		};
 		9FE12E581ACA4F7000DFFB55 /* datamodel */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E681ACA6D2900DFFB55 /* Songs.swift */,
 			);
 			name = datamodel;
+			path = classes/datamodel;
 			sourceTree = "<group>";
 		};
 		9FE12E591ACA4F7B00DFFB55 /* controllers */ = {
@@ -190,6 +220,46 @@
 			);
 			name = common;
 			path = classes/common;
+			sourceTree = "<group>";
+		};
+		9FE12E6A1ACA6D8F00DFFB55 /* FMDB Library */ = {
+			isa = PBXGroup;
+			children = (
+				9FE12E6B1ACA6DAA00DFFB55 /* colorPalette.plist */,
+				9FE12E6C1ACA6DAA00DFFB55 /* FMDB */,
+				9FE12E741ACA6DAA00DFFB55 /* fontsList.plist */,
+			);
+			path = "FMDB Library";
+			sourceTree = "<group>";
+		};
+		9FE12E6C1ACA6DAA00DFFB55 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				9FE12E6D1ACA6DAA00DFFB55 /* FMDatabase.h */,
+				9FE12E6E1ACA6DAA00DFFB55 /* FMDatabase.m */,
+				9FE12E6F1ACA6DAA00DFFB55 /* FMDatabaseAdditions.h */,
+				9FE12E701ACA6DAA00DFFB55 /* FMDatabaseAdditions.m */,
+				9FE12E711ACA6DAA00DFFB55 /* fmdb.txt */,
+				9FE12E721ACA6DAA00DFFB55 /* FMResultSet.h */,
+				9FE12E731ACA6DAA00DFFB55 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		9FE12E7B1ACA6DFB00DFFB55 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */,
+			);
+			path = framework;
+			sourceTree = "<group>";
+		};
+		9FE12E7F1ACA6EBF00DFFB55 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				9FE12E801ACA6ECC00DFFB55 /* Header.h */,
+			);
+			name = header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +342,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FE12E751ACA6DAA00DFFB55 /* colorPalette.plist in Resources */,
+				9FE12E7A1ACA6DAA00DFFB55 /* fontsList.plist in Resources */,
+				9FE12E781ACA6DAA00DFFB55 /* fmdb.txt in Resources */,
 				9FE12E391ACA4C9E00DFFB55 /* Main.storyboard in Resources */,
 				9FE12E3E1ACA4C9E00DFFB55 /* LaunchScreen.xib in Resources */,
 				9FE12E5D1ACA677100DFFB55 /* songs.sqlite in Resources */,
@@ -293,12 +366,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FE12E691ACA6D2900DFFB55 /* Songs.swift in Sources */,
 				9FE12E361ACA4C9E00DFFB55 /* DetailViewController.swift in Sources */,
 				9FE12E621ACA68AD00DFFB55 /* CommonConstants.swift in Sources */,
+				9FE12E761ACA6DAA00DFFB55 /* FMDatabase.m in Sources */,
 				9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */,
+				9FE12E671ACA6C9A00DFFB55 /* SongDao.swift in Sources */,
 				9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */,
 				9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */,
+				9FE12E791ACA6DAA00DFFB55 /* FMResultSet.m in Sources */,
 				9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */,
+				9FE12E771ACA6DAA00DFFB55 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +504,7 @@
 				INFOPLIST_FILE = worshipsongs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = worshipsongs/classes/header/header.h;
 			};
 			name = Debug;
 		};
@@ -436,6 +515,7 @@
 				INFOPLIST_FILE = worshipsongs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = worshipsongs/classes/header/header.h;
 			};
 			name = Release;
 		};

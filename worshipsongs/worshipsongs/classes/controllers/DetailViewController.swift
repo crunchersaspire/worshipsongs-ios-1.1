@@ -8,12 +8,12 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
-    var detailItem: AnyObject? {
+    var detailItem: Songs? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,9 +22,9 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let detail = self.detailItem as Songs! {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                label.text = detail.title
             }
         }
     }
