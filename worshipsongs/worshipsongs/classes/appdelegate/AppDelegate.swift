@@ -12,9 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var utilitiesService = UtilitiesService()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        var documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        var databasePath = documentDirectoryPath.stringByAppendingPathComponent("songs.sqlite")
+        var checkValidation = NSFileManager.defaultManager()
+        if (checkValidation.fileExistsAtPath(databasePath)){
+            println("database Already copied");
+        }
+        else{
+            utilitiesService.copyDatabaseFile("songs.sqlite")
+        }
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
