@@ -14,6 +14,10 @@
 		9FE12E3B1ACA4C9E00DFFB55 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E3A1ACA4C9E00DFFB55 /* Images.xcassets */; };
 		9FE12E3E1ACA4C9E00DFFB55 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E3C1ACA4C9E00DFFB55 /* LaunchScreen.xib */; };
 		9FE12E4A1ACA4C9E00DFFB55 /* worshipsongsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E491ACA4C9E00DFFB55 /* worshipsongsTests.swift */; };
+		9FE12E5D1ACA677100DFFB55 /* songs.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E5C1ACA677100DFFB55 /* songs.sqlite */; };
+		9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */; };
+		9FE12E621ACA68AD00DFFB55 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E611ACA68AD00DFFB55 /* CommonConstants.swift */; };
+		9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E641ACA694500DFFB55 /* CommonService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		9FE12E431ACA4C9E00DFFB55 /* worshipsongsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = worshipsongsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE12E481ACA4C9E00DFFB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE12E491ACA4C9E00DFFB55 /* worshipsongsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worshipsongsTests.swift; sourceTree = "<group>"; };
+		9FE12E5C1ACA677100DFFB55 /* songs.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = songs.sqlite; path = asset/songs.sqlite; sourceTree = "<group>"; };
+		9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesService.swift; sourceTree = "<group>"; };
+		9FE12E611ACA68AD00DFFB55 /* CommonConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
+		9FE12E641ACA694500DFFB55 /* CommonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,7 @@
 		9FE12E531ACA4F2D00DFFB55 /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E5C1ACA677100DFFB55 /* songs.sqlite */,
 			);
 			name = asset;
 			sourceTree = "<group>";
@@ -124,6 +133,7 @@
 		9FE12E551ACA4F4600DFFB55 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E601ACA688100DFFB55 /* common */,
 				9FE12E5A1ACA4F9100DFFB55 /* appdelegate */,
 				9FE12E591ACA4F7B00DFFB55 /* controllers */,
 				9FE12E581ACA4F7000DFFB55 /* datamodel */,
@@ -143,6 +153,8 @@
 		9FE12E571ACA4F5D00DFFB55 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */,
+				9FE12E641ACA694500DFFB55 /* CommonService.swift */,
 			);
 			name = service;
 			sourceTree = "<group>";
@@ -169,6 +181,15 @@
 				9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */,
 			);
 			name = appdelegate;
+			sourceTree = "<group>";
+		};
+		9FE12E601ACA688100DFFB55 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				9FE12E611ACA68AD00DFFB55 /* CommonConstants.swift */,
+			);
+			name = common;
+			path = classes/common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +274,7 @@
 			files = (
 				9FE12E391ACA4C9E00DFFB55 /* Main.storyboard in Resources */,
 				9FE12E3E1ACA4C9E00DFFB55 /* LaunchScreen.xib in Resources */,
+				9FE12E5D1ACA677100DFFB55 /* songs.sqlite in Resources */,
 				9FE12E3B1ACA4C9E00DFFB55 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FE12E361ACA4C9E00DFFB55 /* DetailViewController.swift in Sources */,
+				9FE12E621ACA68AD00DFFB55 /* CommonConstants.swift in Sources */,
+				9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */,
 				9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */,
+				9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */,
 				9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
