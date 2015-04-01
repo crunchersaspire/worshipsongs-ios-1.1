@@ -33,7 +33,7 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
-        <!--Master-->
+        <!--Title-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController id="7bK-jq-Zjz" customClass="MasterViewController" customModule="worshipsongs" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,11 +70,77 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Title" id="p2b-p4-93b">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="MVR-OM-rBN">
+                            <connections>
+                                <segue destination="TLJ-7c-4FF" kind="popoverPresentation" identifier="showSettingsPopOver" popoverAnchorBarButtonItem="MVR-OM-rBN" id="WSs-S3-5yL">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="TLJ-7c-4FF" kind="show" identifier="pushSettingView" id="Vfa-He-WaS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="-630"/>
+            <point key="canvasLocation" x="758" y="-640"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="nPR-YQ-ipZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="weg-Wx-JyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="SettingsView" id="TLJ-7c-4FF" customClass="SettingsTableViewController" customModule="worshipsongs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iDn-wP-f7d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tdJ-Lq-Uxq">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tdJ-Lq-Uxq" id="mnn-o5-5wt">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TLJ-7c-4FF" id="Tqq-dv-sp8"/>
+                            <outlet property="delegate" destination="TLJ-7c-4FF" id="Wmo-Cm-adU"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="8fl-ch-vFB" kind="show" identifier="settingsTables" id="SMl-B1-YFk"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1506" y="-646"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Ia3-tX-zZD">
+            <objects>
+                <tableViewController id="8fl-ch-vFB" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SFQ-pD-lTi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qEr-Zu-fBU">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qEr-Zu-fBU" id="TpW-eM-VJg">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8fl-ch-vFB" id="cUO-7c-aoh"/>
+                            <outlet property="delegate" destination="8fl-ch-vFB" id="reZ-tt-6Pj"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53X-YX-MCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2218" y="-646"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -89,7 +155,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-45" y="129"/>
+            <point key="canvasLocation" x="-3" y="135"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="zYB-Yg-JKg">
@@ -116,10 +182,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1Z-LC-02y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="129"/>
+            <point key="canvasLocation" x="790" y="135"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
+        <segue reference="WSs-S3-5yL"/>
     </inferredMetricsTieBreakers>
 </document>

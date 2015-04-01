@@ -27,6 +27,7 @@
 		9FE12E791ACA6DAA00DFFB55 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E731ACA6DAA00DFFB55 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9FE12E7A1ACA6DAA00DFFB55 /* fontsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E741ACA6DAA00DFFB55 /* fontsList.plist */; };
 		9FE12E7D1ACA6E1600DFFB55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */; };
+		9FE65F091ACB8D85007208AC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE65F081ACB8D85007208AC /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		9FE12E741ACA6DAA00DFFB55 /* fontsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fontsList.plist; sourceTree = "<group>"; };
 		9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9FE12E801ACA6ECC00DFFB55 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Header.h; path = classes/header/Header.h; sourceTree = "<group>"; };
+		9FE65F081ACB8D85007208AC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = classes/controllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			children = (
 				9FE12E331ACA4C9E00DFFB55 /* MasterViewController.swift */,
 				9FE12E351ACA4C9E00DFFB55 /* DetailViewController.swift */,
+				9FE65F081ACB8D85007208AC /* SettingsTableViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				9FE12E671ACA6C9A00DFFB55 /* SongDao.swift in Sources */,
 				9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */,
 				9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */,
+				9FE65F091ACB8D85007208AC /* SettingsTableViewController.swift in Sources */,
 				9FE12E791ACA6DAA00DFFB55 /* FMResultSet.m in Sources */,
 				9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */,
 				9FE12E771ACA6DAA00DFFB55 /* FMDatabaseAdditions.m in Sources */,
@@ -572,6 +576,7 @@
 				9FE12E4F1ACA4C9E00DFFB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE12E501ACA4C9E00DFFB55 /* Build configuration list for PBXNativeTarget "worshipsongsTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +585,7 @@
 				9FE12E521ACA4C9E00DFFB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

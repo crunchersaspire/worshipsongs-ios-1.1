@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     var songTitles : NSMutableArray = []
     var songs = [String]()
@@ -31,7 +31,7 @@ class MasterViewController: UITableViewController {
         self.navigationItem.title = "Worship Songs"
         self.songData = SongDao.instance.getSongList()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        //self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
        // let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton
@@ -66,6 +66,27 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+        if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+        {
+            if segue.identifier == "showSettingsPopOver"{
+                var popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("SettingsView") as UIViewController
+                var nav = UINavigationController(rootViewController: popoverContent)
+                nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+                var popover = nav.popoverPresentationController as UIPopoverPresentationController!
+                popover.delegate = self
+                popover.sourceView = self.view
+                self.presentViewController(nav, animated: true, completion: nil)
+            }
+        }
+        else
+        {
+            if segue.identifier == "pushSettingView"{
+                self.performSegueWithIdentifier("pushSettingView", sender: self)
+            }
+
+        }
+        
+        
     }
 
     // MARK: - Table View
@@ -89,6 +110,16 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+    }
+    
+    // MARK: - UIPopoverPresentationControllerDelegate
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle {
+        return .FullScreen
+    }
+    
+    func presentationController(controller: UIPresentationController!, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController! {
+        println("hi")
+        return UINavigationController(rootViewController: controller.presentedViewController)
     }
 }
 
