@@ -20,6 +20,8 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
     var listDataDictionary : NSMutableDictionary = NSMutableDictionary()
     var parsedVerseOrderList: NSMutableArray = NSMutableArray()
     
+    var detailSong : Songs!
+    
     var detailItem: Songs? {
         didSet {
             // Update the view.
@@ -31,6 +33,7 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         // Update the user interface for the detail item.
         
         if let detail = self.detailItem as Songs! {
+            println("Detail view title:\(detail.title)..")
             self.navigationItem.title = detail.title
             var lyrics: NSData = detail.lyrics.dataUsingEncoding(NSUTF8StringEncoding)!
             parser = NSXMLParser(data: lyrics)
@@ -46,6 +49,8 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("Detail view ..\(detailSong)")
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
         tableView.dataSource = self
@@ -74,7 +79,6 @@ class DetailViewController: UITableViewController, UISplitViewControllerDelegate
         
         var key: String = (verseOrderList[indexPath.row] as String).lowercaseString
         let dataText: NSString? = listDataDictionary[key] as? NSString;
-        println("Key, Data text: \(key),\(dataText)")
         cell.textLabel!.numberOfLines = 0
         cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping;
         cell.textLabel?.text = dataText
