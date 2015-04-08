@@ -9,6 +9,8 @@
 import UIKit
 
 class ColorSettingsTableViewController: UITableViewController {
+    
+    var NUMBER_OF_ROWS = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +32,16 @@ class ColorSettingsTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        switch(section) {
+        case 0: return NUMBER_OF_ROWS   // section 0 has 2 rows
+        default: fatalError("Unknown number of sections")
+        }
     }
 
     /*
