@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F40BEF51AD4C4B0004DD049 /* ColorSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40BEF41AD4C4B0004DD049 /* ColorSettingsTableViewController.swift */; };
 		9FD2BEB71ACCDC2C00B75F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */; };
+		9FD2EB891AD4F56E00988EF3 /* TextAttributeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD2EB881AD4F56E00988EF3 /* TextAttributeService.swift */; };
 		9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */; };
 		9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E331ACA4C9E00DFFB55 /* MasterViewController.swift */; };
 		9FE12E361ACA4C9E00DFFB55 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E351ACA4C9E00DFFB55 /* DetailViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		9F40BEF41AD4C4B0004DD049 /* ColorSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSettingsTableViewController.swift; path = classes/controllers/ColorSettingsTableViewController.swift; sourceTree = "<group>"; };
 		9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9FD2EB881AD4F56E00988EF3 /* TextAttributeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAttributeService.swift; sourceTree = "<group>"; };
 		9FE12E2C1ACA4C9E00DFFB55 /* worshipsongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = worshipsongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE12E301ACA4C9E00DFFB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = classes/appdelegate/AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		9FE12E571ACA4F5D00DFFB55 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				9FD2EB881AD4F56E00988EF3 /* TextAttributeService.swift */,
 				9FE12E661ACA6C9A00DFFB55 /* SongDao.swift */,
 				9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */,
 				9FE12E641ACA694500DFFB55 /* CommonService.swift */,
@@ -386,6 +389,7 @@
 				9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */,
 				9FE12E671ACA6C9A00DFFB55 /* SongDao.swift in Sources */,
 				9F40BEF51AD4C4B0004DD049 /* ColorSettingsTableViewController.swift in Sources */,
+				9FD2EB891AD4F56E00988EF3 /* TextAttributeService.swift in Sources */,
 				9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */,
 				9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */,
 				9FE65F091ACB8D85007208AC /* SettingsTableViewController.swift in Sources */,

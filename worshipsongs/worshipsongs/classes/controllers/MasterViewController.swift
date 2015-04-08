@@ -16,6 +16,7 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     var filteredData = [(Songs)]()
     var detailViewController: DetailViewController? = nil
     var searchBar: UISearchBar!
+    var textAttributeService = TextAttributeService()
     //var objects = [AnyObject]()
 
 
@@ -110,15 +111,46 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songData.count
+        if tableView == self.tableView && filteredData.count > 0 {
+            return self.filteredData.count
+        }
+        else if filteredData.count == 0 && !searchBar.text.isEmpty {
+            return 1
+        }
+        else if songData.count > 0{
+            return self.songData.count
+        }
+        else{
+            return 10
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-        let object = songData[indexPath.row] as Songs
-        cell.textLabel!.text = object.title
-        return cell
+        //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
+        var dataCell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
+        if(dataCell == nil)
+        {
+            dataCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        }
+        var song : Songs
+        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+        if tableView == self.tableView && filteredData.count > 0 {
+            song = filteredData[indexPath.row]
+            dataCell!.textLabel!.text = song.title
+            dataCell!.textLabel?.font = textAttributeService.getDefaultFont()
+        }
+        else if filteredData.count == 0 && !searchBar.text.isEmpty {
+            dataCell!.textLabel!.text = "No Results found!..."
+        }
+        else if songData.count > 0 {
+            song = songData[indexPath.row]
+            dataCell!.textLabel!.text = song.title
+            dataCell!.textLabel?.font = textAttributeService.getDefaultFont()
+        }
+        else{
+            dataCell!.textLabel!.text = ""
+        }
+        return dataCell!
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -138,6 +170,48 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         return true
     }
     
+    // MARK: UISearchBarDelegate
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.navigationController?.navigationBarHidden=true
+        filterContentForSearchText(searchBar)
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.navigationItem.titleView = nil;
+        self.searchBar.text = ""
+        self.filteredData = [(Songs)]()
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "searchButtonItemClicked:"), animated: true)
+        self.tableView.reloadData()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentForSearchText(searchBar)
+        self.tableView.reloadData()
+    }
+    
+    func filterContentForSearchText(searchBar: UISearchBar) {
+        // Filter the array using the filter method
+        var searchText = searchBar.text
+        var data = [(Songs)]()
+        data = self.songData.filter({( song: Songs) -> Bool in
+            var stringMatch = (song.title as NSString).localizedCaseInsensitiveContainsString(searchText)
+            return (stringMatch.boolValue)
+            
+        })
+        
+        if data.count != songData.count{
+            self.filteredData = data
+        }
+    }
+    
+    func searchButtonItemClicked(sender:UIBarButtonItem){
+        self.navigationItem.titleView = searchBar;
+        self.navigationItem.rightBarButtonItem=nil
+        searchBar.becomeFirstResponder()
+    }
+
+    
     // MARK: - UIPopoverPresentationControllerDelegate
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle {
         return .FullScreen
@@ -145,7 +219,6 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
     
     
     func presentationController(controller: UIPresentationController!, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController! {
-        println("hi")
         return UINavigationController(rootViewController: controller.presentedViewController)
     }
     
