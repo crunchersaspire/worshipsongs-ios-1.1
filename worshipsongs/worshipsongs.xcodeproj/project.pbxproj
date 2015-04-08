@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F40BEF51AD4C4B0004DD049 /* ColorSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40BEF41AD4C4B0004DD049 /* ColorSettingsTableViewController.swift */; };
+		9FD2BEB71ACCDC2C00B75F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */; };
 		9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */; };
 		9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E331ACA4C9E00DFFB55 /* MasterViewController.swift */; };
 		9FE12E361ACA4C9E00DFFB55 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E351ACA4C9E00DFFB55 /* DetailViewController.swift */; };
-		9FE12E391ACA4C9E00DFFB55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E371ACA4C9E00DFFB55 /* Main.storyboard */; };
+		9FE12E391ACA4C9E00DFFB55 /* Main~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E371ACA4C9E00DFFB55 /* Main~ipad.storyboard */; };
 		9FE12E3B1ACA4C9E00DFFB55 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E3A1ACA4C9E00DFFB55 /* Images.xcassets */; };
 		9FE12E3E1ACA4C9E00DFFB55 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E3C1ACA4C9E00DFFB55 /* LaunchScreen.xib */; };
 		9FE12E4A1ACA4C9E00DFFB55 /* worshipsongsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E491ACA4C9E00DFFB55 /* worshipsongsTests.swift */; };
@@ -28,6 +30,7 @@
 		9FE12E7A1ACA6DAA00DFFB55 /* fontsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FE12E741ACA6DAA00DFFB55 /* fontsList.plist */; };
 		9FE12E7D1ACA6E1600DFFB55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */; };
 		9FE65F091ACB8D85007208AC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE65F081ACB8D85007208AC /* SettingsTableViewController.swift */; };
+		9FE65F0B1ACBE509007208AC /* FontSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE65F0A1ACBE509007208AC /* FontSettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F40BEF41AD4C4B0004DD049 /* ColorSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSettingsTableViewController.swift; path = classes/controllers/ColorSettingsTableViewController.swift; sourceTree = "<group>"; };
+		9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9FE12E2C1ACA4C9E00DFFB55 /* worshipsongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = worshipsongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE12E301ACA4C9E00DFFB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = classes/appdelegate/AppDelegate.swift; sourceTree = "<group>"; };
 		9FE12E331ACA4C9E00DFFB55 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = classes/controllers/MasterViewController.swift; sourceTree = "<group>"; };
 		9FE12E351ACA4C9E00DFFB55 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = classes/controllers/DetailViewController.swift; sourceTree = "<group>"; };
-		9FE12E381ACA4C9E00DFFB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9FE12E381ACA4C9E00DFFB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main~ipad.storyboard"; sourceTree = "<group>"; };
 		9FE12E3A1ACA4C9E00DFFB55 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9FE12E3D1ACA4C9E00DFFB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9FE12E431ACA4C9E00DFFB55 /* worshipsongsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = worshipsongsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +75,7 @@
 		9FE12E7C1ACA6E1600DFFB55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9FE12E801ACA6ECC00DFFB55 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Header.h; path = classes/header/Header.h; sourceTree = "<group>"; };
 		9FE65F081ACB8D85007208AC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = classes/controllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		9FE65F0A1ACBE509007208AC /* FontSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontSettingsTableViewController.swift; path = classes/controllers/FontSettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +118,12 @@
 		9FE12E2E1ACA4C9E00DFFB55 /* worshipsongs */ = {
 			isa = PBXGroup;
 			children = (
+				9FE12E371ACA4C9E00DFFB55 /* Main~ipad.storyboard */,
+				9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */,
 				9FE12E7B1ACA6DFB00DFFB55 /* framework */,
 				9FE12E6A1ACA6D8F00DFFB55 /* FMDB Library */,
 				9FE12E551ACA4F4600DFFB55 /* classes */,
 				9FE12E531ACA4F2D00DFFB55 /* asset */,
-				9FE12E371ACA4C9E00DFFB55 /* Main.storyboard */,
 				9FE12E3A1ACA4C9E00DFFB55 /* Images.xcassets */,
 				9FE12E3C1ACA4C9E00DFFB55 /* LaunchScreen.xib */,
 				9FE12E2F1ACA4C9E00DFFB55 /* Supporting Files */,
@@ -204,6 +211,8 @@
 				9FE12E331ACA4C9E00DFFB55 /* MasterViewController.swift */,
 				9FE12E351ACA4C9E00DFFB55 /* DetailViewController.swift */,
 				9FE65F081ACB8D85007208AC /* SettingsTableViewController.swift */,
+				9FE65F0A1ACBE509007208AC /* FontSettingsTableViewController.swift */,
+				9F40BEF41AD4C4B0004DD049 /* ColorSettingsTableViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -348,7 +357,8 @@
 				9FE12E751ACA6DAA00DFFB55 /* colorPalette.plist in Resources */,
 				9FE12E7A1ACA6DAA00DFFB55 /* fontsList.plist in Resources */,
 				9FE12E781ACA6DAA00DFFB55 /* fmdb.txt in Resources */,
-				9FE12E391ACA4C9E00DFFB55 /* Main.storyboard in Resources */,
+				9FE12E391ACA4C9E00DFFB55 /* Main~ipad.storyboard in Resources */,
+				9FD2BEB71ACCDC2C00B75F80 /* Main.storyboard in Resources */,
 				9FE12E3E1ACA4C9E00DFFB55 /* LaunchScreen.xib in Resources */,
 				9FE12E5D1ACA677100DFFB55 /* songs.sqlite in Resources */,
 				9FE12E3B1ACA4C9E00DFFB55 /* Images.xcassets in Resources */,
@@ -375,9 +385,11 @@
 				9FE12E761ACA6DAA00DFFB55 /* FMDatabase.m in Sources */,
 				9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */,
 				9FE12E671ACA6C9A00DFFB55 /* SongDao.swift in Sources */,
+				9F40BEF51AD4C4B0004DD049 /* ColorSettingsTableViewController.swift in Sources */,
 				9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */,
 				9FE12E5F1ACA682D00DFFB55 /* UtilitiesService.swift in Sources */,
 				9FE65F091ACB8D85007208AC /* SettingsTableViewController.swift in Sources */,
+				9FE65F0B1ACBE509007208AC /* FontSettingsTableViewController.swift in Sources */,
 				9FE12E791ACA6DAA00DFFB55 /* FMResultSet.m in Sources */,
 				9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */,
 				9FE12E771ACA6DAA00DFFB55 /* FMDatabaseAdditions.m in Sources */,
@@ -403,12 +415,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9FE12E371ACA4C9E00DFFB55 /* Main.storyboard */ = {
+		9FE12E371ACA4C9E00DFFB55 /* Main~ipad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9FE12E381ACA4C9E00DFFB55 /* Base */,
 			);
-			name = Main.storyboard;
+			name = "Main~ipad.storyboard";
 			sourceTree = "<group>";
 		};
 		9FE12E3C1ACA4C9E00DFFB55 /* LaunchScreen.xib */ = {
