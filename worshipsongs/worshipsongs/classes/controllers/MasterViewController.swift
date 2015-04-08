@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class MasterViewController: UITableViewController, UIPopoverPresentationControllerDelegate, UISearchBarDelegate {
     
     var songTitles : NSMutableArray = []
     var songs = [String]()
     var songData = [(Songs)]()
     var filteredData = [(Songs)]()
     var detailViewController: DetailViewController? = nil
+    var searchBar: UISearchBar!
     //var objects = [AnyObject]()
 
 
@@ -31,11 +32,16 @@ class MasterViewController: UITableViewController, UIPopoverPresentationControll
         self.navigationItem.title = "Worship Songs"
         self.addSearchBarButton()
         self.songData = SongDao.instance.getSongList()
-        // Do any additional setup after loading the view, typically from a nib.
-        //self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-       // let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton
+        
+        var searchBarFrame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
+            self.view.bounds.size.width, 44);
+        searchBar = UISearchBar(frame: searchBarFrame)
+        searchBar.delegate = self;
+        searchBar.placeholder = "Search Songs"
+        //display the cancel button next to the search bar
+        searchBar.showsCancelButton = true;
+        searchBar.tintColor = UIColor.grayColor()
+        
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
