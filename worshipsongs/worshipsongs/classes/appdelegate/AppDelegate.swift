@@ -26,11 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         else{
             utilitiesService.copyDatabaseFile("songs.sqlite")
         }
-        // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
-        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-        splitViewController.delegate = self
+        if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+        {
+            // Override point for customization after application launch.
+            let splitViewController = self.window!.rootViewController as UISplitViewController
+            let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
+            navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+            splitViewController.delegate = self
+        
+        }
+        else{
+            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as UINavigationController
+            let rootViewController:UIViewController = storyboard.instantiateViewControllerWithIdentifier("Master_View") as UIViewController
+            navigationController.viewControllers = [rootViewController]
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window?.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
