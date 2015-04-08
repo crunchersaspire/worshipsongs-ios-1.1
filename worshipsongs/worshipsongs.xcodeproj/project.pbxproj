@@ -11,6 +11,7 @@
 		9FD2BEB71ACCDC2C00B75F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */; };
 		9FD2EB891AD4F56E00988EF3 /* TextAttributeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD2EB881AD4F56E00988EF3 /* TextAttributeService.swift */; };
 		9FD2EB8B1AD4F6D100988EF3 /* SettingsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD2EB8A1AD4F6D100988EF3 /* SettingsDataManager.swift */; };
+		9FD2EB8D1AD4FACD00988EF3 /* ColorPaletteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD2EB8C1AD4FACD00988EF3 /* ColorPaletteService.swift */; };
 		9FE12E321ACA4C9E00DFFB55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */; };
 		9FE12E341ACA4C9E00DFFB55 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E331ACA4C9E00DFFB55 /* MasterViewController.swift */; };
 		9FE12E361ACA4C9E00DFFB55 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE12E351ACA4C9E00DFFB55 /* DetailViewController.swift */; };
@@ -50,6 +51,7 @@
 		9FD2BEB61ACCDC2C00B75F80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9FD2EB881AD4F56E00988EF3 /* TextAttributeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAttributeService.swift; sourceTree = "<group>"; };
 		9FD2EB8A1AD4F6D100988EF3 /* SettingsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDataManager.swift; sourceTree = "<group>"; };
+		9FD2EB8C1AD4FACD00988EF3 /* ColorPaletteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaletteService.swift; sourceTree = "<group>"; };
 		9FE12E2C1ACA4C9E00DFFB55 /* worshipsongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = worshipsongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE12E301ACA4C9E00DFFB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FE12E311ACA4C9E00DFFB55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = classes/appdelegate/AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		9FE12E571ACA4F5D00DFFB55 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				9FD2EB8C1AD4FACD00988EF3 /* ColorPaletteService.swift */,
 				9FD2EB881AD4F56E00988EF3 /* TextAttributeService.swift */,
 				9FE12E661ACA6C9A00DFFB55 /* SongDao.swift */,
 				9FE12E5E1ACA682D00DFFB55 /* UtilitiesService.swift */,
@@ -390,6 +393,7 @@
 				9FE12E621ACA68AD00DFFB55 /* CommonConstants.swift in Sources */,
 				9FE12E761ACA6DAA00DFFB55 /* FMDatabase.m in Sources */,
 				9FE12E651ACA694500DFFB55 /* CommonService.swift in Sources */,
+				9FD2EB8D1AD4FACD00988EF3 /* ColorPaletteService.swift in Sources */,
 				9FE12E671ACA6C9A00DFFB55 /* SongDao.swift in Sources */,
 				9F40BEF51AD4C4B0004DD049 /* ColorSettingsTableViewController.swift in Sources */,
 				9FD2EB891AD4F56E00988EF3 /* TextAttributeService.swift in Sources */,
