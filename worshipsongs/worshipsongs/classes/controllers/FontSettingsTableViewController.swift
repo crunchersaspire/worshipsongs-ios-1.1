@@ -18,6 +18,7 @@ class FontSettingsTableViewController: UITableViewController, UIPickerViewDelega
     var fontSizeSlider: UISlider = UISlider()
     var fontSizeLabel: UILabel = UILabel()
     var fontNames: Array<String> = Array()
+    var settingDataManager = SettingsDataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class FontSettingsTableViewController: UITableViewController, UIPickerViewDelega
         // construct font setting cell, section 0, row 0
         self.fontNameCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         self.fontNameTextfield = UITextField(frame: CGRectInset(self.fontNameCell.contentView.bounds, 15, 0))
-       // self.fontNameTextfield.text = settingDataManager.getFontName
+        self.fontNameTextfield.text = settingDataManager.getFontName
         self.fontNameTextfield.placeholder = "Select font"
         self.fontNameTextfield.font = getFont()
         self.fontNameTextfield.inputView = pickerView
@@ -49,10 +50,10 @@ class FontSettingsTableViewController: UITableViewController, UIPickerViewDelega
         self.fontSizeSlider.continuous = true;
         self.fontSizeSlider.addTarget(self, action: "sliderChanged:", forControlEvents: UIControlEvents.ValueChanged)
         self.fontSizeLabel = UILabel(frame: CGRectInset(self.fontSizeSliderCell.contentView.bounds, 20, 0))
-     //   let fontSize = CGFloat(settingDataManager.getFontSize)
-       // let strFontSize = String(format: "%.0f", Double(fontSize))
-       // self.fontSizeSlider.setValue(Float(fontSize), animated: true)
-        //self.fontSizeLabel.text = strFontSize
+        let fontSize = CGFloat(settingDataManager.getFontSize)
+        let strFontSize = String(format: "%.0f", Double(fontSize))
+        self.fontSizeSlider.setValue(Float(fontSize), animated: true)
+        self.fontSizeLabel.text = strFontSize
         self.fontSizeSliderCell.addSubview(fontSizeLabel)
         self.fontSizeSliderCell.addSubview(self.fontSizeSlider)
         
@@ -120,7 +121,7 @@ class FontSettingsTableViewController: UITableViewController, UIPickerViewDelega
     
     func sliderChanged(sender:UISlider){
         fontSizeLabel.text = String(format: "%.0f", fontSizeSlider.value)
-      //  SettingsDataManager.sharedInstance.saveData(fontSizeSlider.value, key: "fontSize")
+        SettingsDataManager.sharedInstance.saveData(fontSizeSlider.value, key: "fontSize")
     }
     
     func getFont() -> UIFont{
@@ -147,7 +148,7 @@ class FontSettingsTableViewController: UITableViewController, UIPickerViewDelega
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
     {
         fontNameTextfield.text = fontNames[row]
-       // SettingsDataManager.sharedInstance.saveData(fontNames[row], key: "fontName")
+        SettingsDataManager.sharedInstance.saveData(fontNames[row], key: "fontName")
         pickerView.hidden = true
     }
     
