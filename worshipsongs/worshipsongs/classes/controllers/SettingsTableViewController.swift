@@ -8,13 +8,63 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
+    var selectedSettingValue:String!
+    var settingsMen: [String] = ["Font", "Color", "Rest", "Other"]
+    
+    var restoreSettingCell: UITableViewCell = UITableViewCell()
+    var aboutSettingCell: UITableViewCell = UITableViewCell()
+    var versionSettingCell: UITableViewCell = UITableViewCell()
+    
+    var restoreSettingButton: UIButton = UIButton()
+    var aboutSettingButton: UIButton = UIButton()
+    var versionLabel: UILabel = UILabel()
+    var versionValueLabel: UILabel = UILabel()
+    var commonService = CommonService()
     
     override func viewDidLoad() {
+        var navBar = UINavigationBar()
         super.viewDidLoad()
-        self.title = "Settings"
- 
+        self.view.addSubview(navBar)
+        //self.navigatio = "Settings"
+        self.navigationItem.title = "Settings"
+        //self.tableView.backgroundColor = UIColor.whiteColor()
+        
+        // construct color setting cell, section 2, row 0
+        self.restoreSettingCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.restoreSettingButton = UIButton(frame: CGRectMake(0, 5, 10, 10))
+        self.restoreSettingButton.addTarget(self, action: "resetValue:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.restoreSettingButton.setTitle("Reset to default", forState: UIControlState.Normal)
+        self.restoreSettingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        self.restoreSettingButton.sizeToFit()
+        self.restoreSettingButton.titleLabel?.font = getDefaultFont()
+        self.restoreSettingCell.addSubview(self.restoreSettingButton)
+        
+        // construct color setting cell, section 3, row 0
+        self.versionSettingCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.versionLabel = UILabel(frame: CGRectMake(5, 10, 70, 20))
+        self.versionLabel.text = "Version"
+        self.versionLabel.textAlignment = NSTextAlignment.Left;
+        self.versionLabel.font = getDefaultFont()
+        self.versionValueLabel = UILabel(frame: CGRectMake(0, 5, 10, 10))
+        self.versionValueLabel.text = "version"
+        self.versionLabel.textAlignment = NSTextAlignment.Right;
+        self.versionValueLabel.textColor = UIColor.grayColor()
+        self.versionValueLabel.numberOfLines = 0;
+        self.versionValueLabel.font = getDefaultFont()
+        self.versionValueLabel.textAlignment = NSTextAlignment.Right;
+        self.versionSettingCell.contentView.addSubview(self.versionLabel)
+        self.versionSettingCell.contentView.addSubview(self.versionValueLabel)
+        
+        self.aboutSettingCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.aboutSettingButton = UIButton(frame: CGRectMake(10, 5, 10, 10))
+        self.aboutSettingButton.addTarget(self, action: "goAbout:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.aboutSettingButton.setTitle("About", forState: UIControlState.Normal)
+        self.aboutSettingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        self.aboutSettingButton.sizeToFit()
+        self.aboutSettingButton.titleLabel?.font = getDefaultFont()
+        self.aboutSettingCell.addSubview(self.aboutSettingButton)
     }
 
     // MARK: - Table view data source
@@ -22,15 +72,13 @@ class SettingsTableViewController: UITableViewController {
      override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 4
+        return 2
     }
 
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
-        case 0: return 1    // section 0 has 2 rows
-        case 1: return 1    // section 1 has 1 row
-        case 2: return 1    // section 2 has 1 row
-        case 3: return 1
+        case 0: return 2    // section 0 has 2 rows
+        case 1: return 3    // section 1 has 1 row
         default: fatalError("Unknown number of sections")
         }
     }
@@ -40,30 +88,51 @@ class SettingsTableViewController: UITableViewController {
         switch(indexPath.section) {
         case 0:
             switch(indexPath.row) {
-            case 0: return getTableViewCell("Font")    // section 0, row 0 is the fontSettingsCell
+            case 0: return getTableViewCell("Font")
+            case 1: return getTableViewCell("Color")
             default: fatalError("Unknown row in section 0")
             }
         case 1:
             switch(indexPath.row) {
-            case 0: return getTableViewCell("Color") // section 1, row 0 is the keepAwakeCell option
+            case 0: return aboutSettingCell
+            case 1: return restoreSettingCell
+            case 2: return getVersionTableViewCell() // section 2, row 0 is the restoreSettingCell option
+
             default: fatalError("Unknown row in section 1")
             }
-        case 2:
-            switch(indexPath.row) {
-            case 0: return getTableViewCell("Display") // section 2, row 0 is the restoreSettingCell option
-            default: fatalError("Unknown row in section 0")
-            }
-        case 3:
-            switch(indexPath.row) {
-            case 0: return getTableViewCell("Other") // section 2, row 0 is the restoreSettingCell option
-            default: fatalError("Unknown row in section 0")
-            }
-            
             
         default: fatalError("Unknown section")
         }
     }
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch(indexPath.section){
+        case 0: selectedSettingValue = "Font"
+        case 1: selectedSettingValue = "Color"
+        default: fatalError("Unknown number of sections")
+        }
+        println("selectedSettingValue:\(selectedSettingValue)")
+        if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone){
+            if selectedSettingValue == "Font"{
+                performSegueWithIdentifier("segueFontSettings", sender: indexPath)
+            }
+            else if selectedSettingValue == "Color"{
+                performSegueWithIdentifier("segueColorSettings", sender: indexPath)
+            }
+        }
+        
+    }
+    
+    // Customize the section headings for each section
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch(section) {
+        case 0: return "Appearence"
+        case 1: return "General"
+        default: fatalError("Unknown section")
+        }
+    }
     
     func getTableViewCell(labelText: String)  -> UITableViewCell{
         var tableCell: UITableViewCell = UITableViewCell()
@@ -71,7 +140,7 @@ class SettingsTableViewController: UITableViewController {
         tableCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         cellLabel = UILabel(frame: CGRectInset(tableCell.contentView.bounds, 30, 0))
         cellLabel.text = labelText
-        //  self.fontSettingsLabel.font = textAttributeService.getDefaultFont()
+        cellLabel.font = getDefaultFont()
         tableCell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         var fontImage = UIImage(named: "Font-icon.png");
         //  fontImageView.image = fontImage;
@@ -79,51 +148,40 @@ class SettingsTableViewController: UITableViewController {
         tableCell.addSubview(cellLabel)
         return tableCell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    func getVersionTableViewCell() -> UITableViewCell{
+        var versionTableViewCell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("CELL_ID") as? UITableViewCell
+        if(versionTableViewCell == nil)
+        {
+            versionTableViewCell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "CELL_ID")
+        }
+        versionTableViewCell!.textLabel?.text="Version"
+        versionTableViewCell!.detailTextLabel?.text = commonService.getVersionNumber()
+        versionTableViewCell!.detailTextLabel?.numberOfLines=0
+        versionTableViewCell!.textLabel?.font = getDefaultFont()
+        versionTableViewCell!.detailTextLabel?.font = getDefaultFont()
+        versionTableViewCell!.selectionStyle = UITableViewCellSelectionStyle.None;
+        versionTableViewCell!.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        return versionTableViewCell!
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        println("Segue: \(segue.identifier)")
+        if (segue.identifier == "segueFontSettings") {
+            var detailController = segue.destinationViewController as FontSettingsTableViewController;
+        }
+        else if (segue.identifier == "segueColorSettings") {
+            var detailController = segue.destinationViewController as ColorSettingsTableViewController;
+        }
     }
-    */
+
+    func getDefaultFont() -> UIFont{
+        return UIFont(name: "HelveticaNeue", size: CGFloat(14))!
+    }
 
 }
