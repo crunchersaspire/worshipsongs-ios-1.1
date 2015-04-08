@@ -10,7 +10,10 @@ import UIKit
 
 class ColorSettingsTableViewController: UITableViewController {
     
+    var colorPaletteService = ColorPaletteService()
     var NUMBER_OF_ROWS = 2
+    var colorView: UIViewController = UIViewController()
+     var languageColor: UIColor = UIColor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +64,105 @@ class ColorSettingsTableViewController: UITableViewController {
         tableViewCell.addSubview(textLabel)
         
         colorLabel = UILabel(frame: CGRectMake(260, 15, 10, 10))
-        let userSelectedPrimaryColorData  =  NSUserDefaults.standardUserDefaults().objectForKey("tamilFontColor") as? NSData
-        colorLabel.backgroundColor = UIColor.blackColor()
+        var userSelectedColorData: NSData!
+        if labelText == "Tamil"{
+             userSelectedColorData  =  NSUserDefaults.standardUserDefaults().objectForKey("tamilFontColor") as? NSData
+        }
+        else{
+            
+             userSelectedColorData  =  NSUserDefaults.standardUserDefaults().objectForKey("englishFontColor") as? NSData
+        }
+        
+        colorLabel.backgroundColor = NSKeyedUnarchiver.unarchiveObjectWithData(userSelectedColorData!) as? UIColor
         tableViewCell.addSubview(colorLabel)
         
         return tableViewCell
+    }
+    
+    // Configure the row selection code for any cells that you want to customize the row selection
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.title = "Choose color"
+        if(indexPath.section == 0 && indexPath.row == 0) {
+            self.colorView.view.hidden = false
+            makeColorView(1)
+        }
+        if(indexPath.section == 0 && indexPath.row == 1) {
+            self.colorView.view.hidden = false
+            makeColorView(2)
+        }
+    }
+    
+    func makeColorView(var colorTag:Int){
+        var buttonFrame = CGRect(x: 12, y: 100, width: 30, height: 25)
+        var colorPalette: Array<String> = Array()
+        colorPalette = colorPaletteService.getColorPalette()
+        
+        var initialColorValue:Int = (colorPalette.count)/10
+        var colorCount:Int = 0
+        var defauktButtonOrgin = buttonFrame.origin.x
+        for index in 0..<initialColorValue{
+            for k in 0..<10{
+                makeButton(buttonFrame, backGroundColor: colorPaletteService.hexStringToUIColor(colorPalette[colorCount]), colorTag: colorTag)
+                colorCount = colorCount+1
+                buttonFrame.origin.x = buttonFrame.size.width + buttonFrame.origin.x
+            }
+            buttonFrame.origin.x = defauktButtonOrgin
+            buttonFrame.origin.y = buttonFrame.origin.y + buttonFrame.size.height
+        }
+        
+        self.addChildViewController(colorView)
+        self.colorView.view.alpha = 0;
+        self.colorView.view.opaque = true;
+        self.colorView.didMoveToParentViewController(self)
+        self.colorView.view.frame = self.view.frame
+        self.view.addSubview(colorView.view)
+        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveLinear, animations: {
+            self.colorView.view.alpha = 1;
+            }, completion: nil)
+    }
+    
+    func makeButton(buttonFrame:CGRect, backGroundColor:UIColor,colorTag:Int){
+        var myButtonFrame = buttonFrame
+        var color = backGroundColor
+        let aButton = UIButton(frame: myButtonFrame)
+        aButton.backgroundColor = color
+        aButton.tag = colorTag
+        colorView.view.addSubview(aButton)
+        aButton.addTarget(self, action: "displayColor:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    func displayColor(sender:UIButton){
+        var r:CGFloat = 0,g:CGFloat = 0,b:CGFloat = 0
+        var a:CGFloat = 0
+        var h:CGFloat = 0,s:CGFloat = 0,l:CGFloat = 0
+        let color = sender.backgroundColor!
+        if color.getHue(&h, saturation: &s, brightness: &l, alpha: &a){
+            if color.getRed(&r, green: &g, blue: &b, alpha: &a){
+                var colorText = NSString(format: "HSB: %4.2f,%4.2f,%4.2f RGB: %4.2f,%4.2f,%4.2f",
+                    Float(h),Float(s),Float(b),Float(r),Float(g),Float(b))
+                languageColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
+                let tagValue = sender.tag
+                let data = NSKeyedArchiver.archivedDataWithRootObject(languageColor)
+                if(tagValue == 1)
+                {
+                    
+                    SettingsDataManager.sharedInstance.saveData(data, key: "tamilFontColor")
+                    self.tableView.reloadData()
+                   // primaryLanguageColorLabel.backgroundColor = userDefaultsSettingsProviderService.getUserDefaultsColor("tamilFontColor")
+                }
+                else
+                {
+                    SettingsDataManager.sharedInstance.saveData(data, key: "englishFontColor")
+                    //secondaryLanguageColorLabel.backgroundColor = userDefaultsSettingsProviderService.getUserDefaultsColor("englishFontColor")
+                    self.tableView.reloadData()
+                }
+                self.colorView.view.hidden = true
+                
+            }
+        }
+        
     }
     
     func getDefaultFont() -> UIFont{
