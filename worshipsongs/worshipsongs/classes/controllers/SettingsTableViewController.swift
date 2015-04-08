@@ -109,11 +109,15 @@ class SettingsTableViewController: UITableViewController, UIPopoverPresentationC
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch(indexPath.section){
-        case 0: selectedSettingValue = "Font"
-        case 1: selectedSettingValue = "Color"
+        case 0:
+            switch(indexPath.row) {
+            case 0: selectedSettingValue = "Font"
+            case 1: selectedSettingValue = "Color"
+            default: fatalError("Unknown number of rows")
+            }
         default: fatalError("Unknown number of sections")
         }
-        println("selectedSettingValue:\(selectedSettingValue)")
+        
         if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone){
             if selectedSettingValue == "Font"{
                 performSegueWithIdentifier("segueFontSettings", sender: indexPath)
