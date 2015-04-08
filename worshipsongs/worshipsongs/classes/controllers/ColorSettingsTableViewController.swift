@@ -14,7 +14,8 @@ class ColorSettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Color"
+        self.tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,6 +26,7 @@ class ColorSettingsTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    
     }
 
     // MARK: - Table view data source
@@ -44,18 +46,37 @@ class ColorSettingsTableViewController: UITableViewController {
         }
     }
     
+    // Return the row for the corresponding section and row
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch(indexPath.section) {
+        case 0:
+            switch(indexPath.row) {
+            case 0: return getTableViewCell("Tamil")
+            case 1: return getTableViewCell("English")
+            default: fatalError("Unknown row in section 0")
+            }
+        default: fatalError("Unknown section")
+        }
+    }
+    
     
     func getTableViewCell(labelText: String)  -> UITableViewCell{
-        var tableCell: UITableViewCell = UITableViewCell()
-        var cellLabel: UILabel = UILabel()
-        tableCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
-        cellLabel = UILabel(frame: CGRectMake(10, 10, 250, 25))
-        cellLabel.text = labelText
-        cellLabel.font = getDefaultFont()
-        cellLabel = UILabel(frame: CGRectMake(260, 15, 10, 10))
+        var tableViewCell: UITableViewCell = UITableViewCell()
+        var textLabel: UILabel = UILabel()
+        var colorLabel: UILabel = UILabel()
+        
+        tableViewCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        textLabel = UILabel(frame: CGRectMake(10, 10, 250, 25))
+        textLabel.text = labelText
+        textLabel.font = getDefaultFont()
+        tableViewCell.addSubview(textLabel)
+        
+        colorLabel = UILabel(frame: CGRectMake(260, 15, 10, 10))
         let userSelectedPrimaryColorData  =  NSUserDefaults.standardUserDefaults().objectForKey("tamilFontColor") as? NSData
-        cellLabel.backgroundColor = UIColor.blackColor()
-        return tableCell
+        colorLabel.backgroundColor = UIColor.blackColor()
+        tableViewCell.addSubview(colorLabel)
+        
+        return tableViewCell
     }
     
     func getDefaultFont() -> UIFont{
